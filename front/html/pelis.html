@@ -5,12 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div class="general">
-        <p>Introdueix un nom i et buscaré una pel·licula</p>
-        <input type="text" id="cercar">
-        <input type="button" onclick="buscar()" value="cercar">
+        <div class="left-align">  
+            <div class="right-align border">
+                <p>Username</p>
+                <input type="texto">
+                <p>Password</p>
+                <input type="texto"><br>
+                <p href="#" id="boton" class="get-profile btn btn-primary">Login</p>
+            </div>
+        </div>
+
+
+
+
+        <input type="text" class="red" id="cercar">
+        <input type="button" onclick="buscar()" value="Cercar película">
         <div id="pelis"></div>
     </div>
     <script src="./../js/ejemplo.js"></script>
