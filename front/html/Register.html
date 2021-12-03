@@ -9,21 +9,21 @@
     <title>Registarse</title>
 </head>
 <body>
-    <form method="POST" action="Pelis.html">
+    <form method="POST" action="./../php/BBDDUsuarios.php">
         <div class="row">
             <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Nombre" id="first_name" type="text" class="validate">
+                <input placeholder="Nombre" id="first_name" name="firstname" type="text" class="validate">
                 <label class="active" for="first_name"></label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate">
+                <input id="last_name" type="text" name="lastname" class="validate">
                 <label class="active" for="last_name">Apellidos</label>
             </div>
             </div>
             <div class="row">
             <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
+                <input id="password" type="password" name="passwd" class="validate">
                 <label class="active" for="password">Contraseña</label>
             </div>
             </div>
