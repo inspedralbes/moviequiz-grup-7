@@ -10,5 +10,6 @@ CREATE TABLE IF NOT EXISTS Proyecto.usuarios (
 
     id INT(15) AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(30),
+    apellidos VARCHAR(50),
     contrasena VARCHAR(30)
 )
