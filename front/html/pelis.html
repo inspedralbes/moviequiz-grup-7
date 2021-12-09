@@ -15,20 +15,19 @@
     </style>
 </head>
 <body>
+<form method="POST" action="../php/Login.php">
     <div class="general">
-        <div class="left-align">  
+        <div class="left-align">
             <div id="float">
-                <p>Username</p>
-                <input type="texto">
-                <p>Password</p>
-                <input type="texto"><br>
+                <p>Correo</p>
+                <input type="texto" id="correo" name="correo" required>
+                <p>Contraseña</p>
+                <input type="texto" id="password" name="passwd" required><br>
                 <p href="#" id="boton" class="get-profile btn btn-primary">Login</p>
                 <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
             </div>
-            <div class="imprimir">
-
-            </div>
         </div>
+
 
 
 
@@ -37,6 +36,7 @@
         <input type="button" onclick="buscar()" value="Cercar película">
         <div id="pelis"></div>
     </div>
-    <script src="./../js/ejemplo.js"></script>
+</form>
+<script src="./../js/ejemplo.js"></script>
 </body>
 </html>
