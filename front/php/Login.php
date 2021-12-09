@@ -15,6 +15,10 @@ $contrasena = $_REQUEST['passwd'];
 
 $consulta = "SELECT * from usuarios WHERE $correo = correo AND $contrasena = contrasena";
 
+$resultado = mysqli_query( $conn, $consulta );
+
+echo $resultado;
+
 
 mysqli_close( $conn );
-header("Location: ./../html/Pelis.html");
+//header("Location: ./../html/Pelis.html");
