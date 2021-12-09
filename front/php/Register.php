@@ -10,25 +10,21 @@ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 $db = mysqli_select_db( $conn, $db_name);
 
-$nombre = $_REQUEST['firstname'];
-$apellidos = $_REQUEST['lastname'];
+$correo = $_REQUEST['correo'];
 $contrasena = $_REQUEST['passwd'];
 
-$consulta = "INSERT INTO usuarios (nombre, apellidos, contrasena) VALUES ('$nombre', '$apellidos', '$contrasena')";
-echo "La query es: " .$consulta;
+$consulta = "INSERT INTO usuarios (correo, contrasena) VALUES ('$correo', '$contrasena')";
 /*
 $resultado = mysqli_query( $conn, $consulta );
 while ($columna = mysqli_fetch_array( $resultado )) {
 }
 */
-/*
 $array = [];
-array_push($array, $consulta);
+array_push($array, "{'id': '$correo' , 'contraseña':  '$contrasena'}");
 $myJSON = json_encode($array);
 echo $myJSON;
 $file = "./../json/usuarios.json";
 file_put_contents($file, $myJSON);
-*/
 if ($conn->query($consulta) === TRUE) {
     echo "New record created successfully";
 } else {
