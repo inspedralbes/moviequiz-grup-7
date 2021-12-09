@@ -18,7 +18,7 @@ $array = [];
 
 while ($columna = mysqli_fetch_array( $resultado )) {
 
-    array_push($array, "{'id': '$columna[id]' , 'titulo':  '$columna[titulo]' , 'imagen': '$columna[imagen]'}");
+  array_push($array, array ('exito'=>true,'id'=>"$columna[id]",'titulo'=>"$columna[titulo]", 'imagen'=>"$columna[imagen]") );
 
 }
 $myJSON = json_encode($array);
