@@ -13,6 +13,7 @@
             padding-right: 10px;
         }
     </style>
+    <script src="./../js/ejemplo.js"></script>
 </head>
 <body>
 <form method="POST" action="../php/Login.php">
@@ -28,15 +29,11 @@
             </div>
         </div>
 
-
-
-
-
-        <input type="text" class="red" id="cercar">
-        <input type="button" onclick="buscar()" value="Cercar película">
+        <input type="text" class="red" id="buscar">
+        <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
+        <div id="peliculas"></div>
     </div>
 </form>
-<script src="./../js/ejemplo.js"></script>
 </body>
 </html>

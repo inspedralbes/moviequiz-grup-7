@@ -18,22 +18,31 @@ fetch(`./../json/peliculas.json`).then(function(res) {
     //        console.log("problem!");
         });
 
+function buscando(){
+    let nombre = document.getElementById("buscar").value;
+    let PeliculasPrincipales = document.getElementById("pelis");
+    PeliculasPrincipales.style.display="none";
+    fetch(`https://www.omdbapi.com/?apikey=18911d9b&s=${nombre}`).then(function(res) {
+        return res.json();
+    }).then(function(data) {
+        console.log(data);
+        let pelis = "";
+        for(i=0; i<10; i++){
+            datos = data.Search[i];
+            pelis += `<div>
+                <h2>${datos.Title}</h2>
+                <img src="${datos.Poster}"></img>
+                </div>`;
+        }
+        document.getElementById("peliculas").innerHTML=pelis;
 
-function buscar(){
-    var peli = document.getElementById("cercar").value;
-    var div = document.getElementById("pelis");
-    fetch("http://www.omdbapi.com/?s=" +peli+ "&apikey=ae8cf42f")
-        .then(response => response.json())
-        .then(data => {
-            for(let i =0; i< data.Search.length; i++){
-                let h2 = document.createElement("h2");
-                let img = document.createElement("img");
-                h2.innerHTML = data.Search[i].Title;
-                img.src = data.Search[i].Poster;
+    });
+    }
 
-                div.append(h2, img);
 
-            }
-            console.log(data);
-        });
-}
+
+
+
+
+
+
