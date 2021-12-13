@@ -1,3 +1,4 @@
+
 fetch(`./../json/peliculas.json`).then(function(res) {
             return res.json();
 

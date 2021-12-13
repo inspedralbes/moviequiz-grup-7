@@ -1,24 +1,29 @@
 <?php
 
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "proyecto";
+include ("Connect.php");
+session_start();
+$correo = $_POST['correo'];
+$contrasena = $_POST['passwd'];
 
+$correo = stripcslashes($correo);
+$contrasena = stripcslashes($contrasena);
+$correo = mysqli_real_escape_string($conn, $correo);
+$contrasena = mysqli_real_escape_string($conn, $contrasena);
 
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+$consulta = "SELECT * from usuarios WHERE correo = '$correo' AND contrasena = $contrasena";
+$result = mysqli_query($conn, $consulta);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$count = mysqli_num_rows($result);
 
-$db = mysqli_select_db($conn, $db_name);
+if($count == 1){
+    echo "<h1><center> Login successful </center></h1>";
+    $_SESSION['correo'] = $correo;
+    $_SESSION['contrasena'] = $contrasena;
+}
+else{
+    echo "<h1> Login failed. Invalid username or password.</h1>";
+}
 
-$correo = $_REQUEST['correo'];
-$contrasena = $_REQUEST['passwd'];
-
-$consulta = "SELECT * from usuarios WHERE $correo = correo AND $contrasena = contrasena";
-
-$resultado = mysqli_query( $conn, $consulta );
-
-echo $resultado;
-
-
-mysqli_close( $conn );
+mysqli_close($conn);
 //header("Location: ./../html/Pelis.html");
+?>

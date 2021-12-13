@@ -22,7 +22,6 @@ while ($columna = mysqli_fetch_array( $resultado )) {
 
 }
 $myJSON = json_encode($array);
-echo $myJSON;
 $file = "./../json/peliculas.json";
 file_put_contents($file, $myJSON);
 
