@@ -1,7 +1,6 @@
 <?php
 
 include ("Connect.php");
-session_start();
 $correo = $_POST['correo'];
 $contrasena = $_POST['passwd'];
 
@@ -16,14 +15,13 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $count = mysqli_num_rows($result);
 
 if($count == 1){
-    echo "<h1><center> Login successful </center></h1>";
-    $_SESSION['correo'] = $correo;
-    $_SESSION['contrasena'] = $contrasena;
+    $arr = array('exito' => true, 'correo' => "$correo", 'contrasena' => "$contrasena", 'imagen' => 'https://randomuser.me/api/portraits/men/23.jpg');;
 }
 else{
-    echo "<h1> Login failed. Invalid username or password.</h1>";
+    $arr = array ('exito' =>false);
 }
+$myJSON = json_encode($arr);
+echo $myJSON;
 
 mysqli_close($conn);
-//header("Location: ./../html/Pelis.html");
 ?>

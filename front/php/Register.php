@@ -32,6 +32,6 @@ else{
         echo "Error: " . $insert . "<br>" . $conn->error;
     }
     mysqli_close($conn);
-    //header("Location: ./../html/Pelis.html");
+    header("Location: ./../html/Pelis.html");
 }
 ?>
