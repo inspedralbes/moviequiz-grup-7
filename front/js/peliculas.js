@@ -9,10 +9,15 @@ fetch(`./../json/peliculas.json`).then(function(res) {
             let pelis = "";
             for(i=0; i<data.length; i++){
                 datos = data[i];
-                pelis += `<div>
-                <h2>${datos.titulo}</h2>
-                <img src="${datos.imagen}"></img>
-                </div>`;
+                pelis += `<div class="row center">
+                                <div class="col s6 m3 l3">
+                                       <div class="card">
+                                            <div class="card-image">
+                                                <img width="100px" src="${datos.imagen}"></img>
+                                                <h3>${datos.titulo}</h3>
+                                       </div>
+                                </div>
+                         </div>`;
             }
             document.getElementById("pelis").innerHTML=pelis;
     //    }).catch(function() {
