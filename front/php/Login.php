@@ -2,7 +2,7 @@
 
 include ("Connect.php");
 $correo = $_POST['correo'];
-$contrasena = $_POST['passwd'];
+$contrasena = $_POST['password'];
 
 if($correo == NULL){
     if($contrasena == NULL){
@@ -33,10 +33,10 @@ else{
     $count = mysqli_num_rows($result);
 
     if($count == 1){
-        $arr = array('exito' => true, 'correo' => "$correo", 'contrasena' => "$contrasena", 'imagen' => 'https://randomuser.me/api/portraits/men/23.jpg');;
+        $arr = array('exito' => true, 'correo' => "$correo", 'imagen' => 'https://randomuser.me/api/portraits/men/18.jpg');;
     }
     else{
-        $arr = array ('exito' =>false);
+        $arr = array ('exito' =>false , 'mensaje' => "Correo o Contraseña incorrectos");
     }
     $myJSON = json_encode($arr);
     echo $myJSON;
