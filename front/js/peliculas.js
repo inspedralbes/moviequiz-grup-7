@@ -69,21 +69,73 @@ function buscando(){
             let peliculas = "";
             for(i=0; i<8; i++) {
                 datos = data.Search[i];
-                peliculas += ` <div class="row center">
-                                            <div class="col s6 m3 l3">
-                                                <div class="card">
-                                                    <div class="card-image">
-                                                    <img width="100px" src="${datos.Poster}"></img>
-                                                    <h3>${datos.Title}</h3>
-                                                    <a class="waves-effect waves-light btn">button</a>
-                                                    </div>
-                                                </div>
-                                        </div>`;
+                peliculas += `  <div class="row center">
+                                <div class="col s6 m3 l3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <img src="${datos.Poster}" class="card-image">
+                                            <span class="card-title">${datos.Title}</span>
+                                             <a id="btn-modal" class="btn-floating halfway-fab modal-trigger waves-effect waves-light red" href="#modal${i}"><i class="material-icons">+</i></a>
+                                        
+                                            <div class="card-content">
+                                                <p>${datos.Year}</p>
+                                            </div>
+                                        </div>
+                                       <div id="modal${i}" class="modal">
+                                        <div class="modal-content">
+                                            <h4 class="center-align cyan-text text-darken-3">${datos.Title}</h4>
+                                            </br>
+                                            <div>
+                                                <label>
+                                                    <input type="checkbox" id="fav" name="fav"/>
+                                                    <span>Marcar como favorito</span>
+                                                </label>
+                                            </div>
+                                            <div id="formValue">
+                                                </br>
+                                                <h5 class="red-text darken-1">Valoración</h5>
+                                                </br>
+                                                <label>
+                                                    <input name="valoracion" type="radio" value="1"/>
+                                                    <span>1</span>
+                                                </label>
+                                                <label>
+                                                    <input name="valoracion" type="radio" value="2"/>
+                                                    <span>2</span>
+                                                </label>
+                                                <label>
+                                                    <input name="valoracion" type="radio" value="3"/>
+                                                    <span>3</span>
+                                                </label>
+                                                <label>
+                                                    <input name="valoracion" type="radio" value="4"/>
+                                                    <span>4</span>
+                                                </label>
+                                                <label>
+                                                    <input name="valoracion" type="radio" value="5"/>
+                                                    <span>5</span>
+                                                </label>
+                                            </div>
+                                            <div class="input-field">
+                                                <textarea id="comentario" class="materialize-textarea" data-length="200"></textarea>
+                                                <label for="comentario">Comentario</label>
+                                            </div>
+                                            <button id="btn-guardar" class="btn waves-effect waves-light disabled"> Guardar </button>
+                                            <!--<div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>-->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="btn modal-close red"><i class="material-icons">cerrar</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
             }
             document.getElementById("peliculas").innerHTML=peliculas;
             //document.getElementsByClassName("profile-image")[0].setAttribute("src",dadesUsr.picture.thumbnail);
             //}).catch(function() {
             //console.log("problem!");
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems,{});
         });
     }
 
