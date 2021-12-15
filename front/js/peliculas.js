@@ -141,7 +141,30 @@ function buscando(){
         });
     }
 
-
+function modalJoc() {
+        let mod = "";
+            mod += `
+                <div class="modal" id="inicio">
+                        <div class="modal-content">
+                            <h4><u>Juego de adivinar la película</u></h4>
+                            <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange left">Cerrar</a>
+                            <a href="#jugar" onclick="cmJugar" class="modal-close btn orange modal-trigger">Empezar</a>
+                        </div>
+                </div>
+                </div id="content">
+                    <div class="modal" id="jugar">
+                        <div class="modal-content">
+                            <p>Hola</p>
+                        </div>
+                    </div>
+                </div> `;
+            document.getElementById("contentModal").innerHTML=mod;
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems);
+}
 
 
 
