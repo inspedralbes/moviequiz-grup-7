@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <style>
-        .right{
+    <style>
+        #float{
             float: right;
             padding-right: 10px;
         }
@@ -27,47 +28,25 @@
     <script src="./../js/peliculas.js"></script>
 </head>
 <body>
-
-
-
+<form method="POST" action="../php/Login.php">
     <div class="general">
-        <input type="text" class="red" id="buscar">
         <div class="left-align">
-            <div id="logueado" class="right"></div>
-            <br>
-            <div id="login" class="right">
+            <div id="float">
                 <p>Correo</p>
                 <input type="texto" id="correo" name="correo" required>
                 <p>Contraseña</p>
                 <input type="texto" id="password" name="passwd" required><br><br>
-                <input type="button" id="boton" onclick="login()" class="get-profile btn btn-primary" value="Login"></input>
+                <input type="submit" id="boton" class="get-profile btn btn-primary" value="Login"></input>
                 <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
             </div>
         </div>
 
-<<<<<<< Updated upstream
-        <a href="#inicio" class="btn orange modal-trigger">Jugar</a>
-        <div class="modal" id="inicio">
-            <div class="modal-content">
-                <h4><u>Juego de adivinar la película</u></h4>
-                <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="modal-close btn orange left">Cerrar</a>
-                <a href="#jugar" class="modal-close btn orange modal-trigger" onclick="jugar()">Empezar</a>
-            </div>
-=======
-        <div id=contentM>
-            <a href="#inicio" class="btn orange modal-trigger" onclick="modalJoc()">Jugar</a>
-            <div id="contentModal"></div>
->>>>>>> Stashed changes
-        </div>
-
-
+        <input type="text" class="red" id="buscar">
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div id="peliculas"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</form>
+
 </body>
 </html>
