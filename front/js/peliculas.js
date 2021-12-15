@@ -51,17 +51,13 @@ fetch(`./../json/peliculas.json`).then(function(res) {
                 htmlstr = "";
                 htmlstr += `<img src="${data.imagen}"></img>
                             <h6>Bienvenido</h6>
-                            <h6>${data.correo}</h6>
-                            <button type="button" id="Jugar" onclick="jugar()" class="get-profile btn btn-primary">Jugar</button>`;
+                            <h6>${data.correo}</h6>`;
                 document.getElementById("logueado").innerHTML = htmlstr;
             }
         })
     }
     function jugar(){
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems);
-        });
+
     }
 
 function buscando(){
