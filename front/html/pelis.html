@@ -27,7 +27,11 @@
     <script src="./../js/peliculas.js"></script>
 </head>
 <body>
+
+
+
     <div class="general">
+        <input type="text" class="red" id="buscar">
         <div class="left-align">
             <div id="logueado" class="right"></div>
             <br>
@@ -41,6 +45,7 @@
             </div>
         </div>
 
+<<<<<<< Updated upstream
         <a href="#inicio" class="btn orange modal-trigger">Jugar</a>
         <div class="modal" id="inicio">
             <div class="modal-content">
@@ -51,25 +56,18 @@
                 <a href="#" class="modal-close btn orange left">Cerrar</a>
                 <a href="#jugar" class="modal-close btn orange modal-trigger" onclick="jugar()">Empezar</a>
             </div>
+=======
+        <div id=contentM>
+            <a href="#inicio" class="btn orange modal-trigger" onclick="modalJoc()">Jugar</a>
+            <div id="contentModal"></div>
+>>>>>>> Stashed changes
         </div>
 
-        <div class="modal" id="jugar">
-            <div class="modal-content">
-                <p>Hola</p>
-            </div>
-        </div>
 
-        <input type="text" class="red" id="buscar">
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div id="peliculas"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems);
-        });
-    </script>
 </body>
 </html>
