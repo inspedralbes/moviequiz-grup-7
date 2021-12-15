@@ -7,8 +7,7 @@
     <title>Películes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
+        <style>
         .right{
             float: right;
             padding-right: 10px;
@@ -42,10 +41,35 @@
             </div>
         </div>
 
+        <a href="#inicio" class="btn orange modal-trigger">Jugar</a>
+        <div class="modal" id="inicio">
+            <div class="modal-content">
+                <h4><u>Juego de adivinar la película</u></h4>
+                <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close btn orange left">Cerrar</a>
+                <a href="#jugar" class="modal-close btn orange modal-trigger">Empezar</a>
+            </div>
+        </div>
+
+        <div class="modal" id="jugar">
+            <div class="modal-content">
+                <p>Hola</p>
+            </div>
+        </div>
+
         <input type="text" class="red" id="buscar">
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div id="peliculas"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
 </body>
 </html>

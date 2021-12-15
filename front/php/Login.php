@@ -27,7 +27,7 @@ else{
     $correo = mysqli_real_escape_string($conn, $correo);
     $contrasena = mysqli_real_escape_string($conn, $contrasena);
 
-    $consulta = "SELECT * from usuarios WHERE correo = '$correo' AND contrasena = $contrasena";
+    $consulta = "SELECT * from usuarios WHERE correo = '$correo' AND contrasena = '$contrasena'";
     $result = mysqli_query($conn, $consulta);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
