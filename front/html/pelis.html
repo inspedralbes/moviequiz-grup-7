@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        #float{
+        .right{
             float: right;
             padding-right: 10px;
         }
@@ -28,25 +27,26 @@
     <script src="./../js/peliculas.js"></script>
 </head>
 <body>
-<form method="POST" action="../php/Login.php">
-    <div class="general">
-        <div class="left-align">
-            <div id="float">
-                <p>Correo</p>
-                <input type="texto" id="correo" name="correo" required>
-                <p>Contraseña</p>
-                <input type="texto" id="password" name="passwd" required><br><br>
-                <input type="submit" id="boton" class="get-profile btn btn-primary" value="Login"></input>
-                <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
-            </div>
-        </div>
 
-        <input type="text" class="red" id="buscar">
-        <input type="button" onclick="buscando()" value="buscar">
-        <div id="pelis"></div>
-        <div id="peliculas"></div>
+
+
+<div class="general">
+    <input type="text" class="red" id="buscar">
+    <div class="left-align">
+        <div id="logueado" class="right"></div>
+        <br>
+
     </div>
-</form>
+</div>
+    <a href="#inicio" onclick="modalJoc()" class="btn orange modal-trigger">Jugar</a>
 
+    <div id="contentModal">
+    </div>
+
+    <input type="button" onclick="buscando()" value="buscar">
+    <div id="pelis"></div>
+    <div id="peliculas"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
