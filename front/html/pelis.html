@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        .right{
+        #float{
             float: right;
             padding-right: 10px;
         }
@@ -30,23 +30,48 @@
 
 
 
-<div class="general">
-    <input type="text" class="red" id="buscar">
-    <div class="left-align">
-        <div id="logueado" class="right"></div>
-        <br>
+<form method="POST" action="../php/Login.php">
+    <div class="general">
 
+        <div class="left-align">
+            <div id="float">
+                <p>Correo</p>
+                <input type="texto" id="correo" name="correo" required>
+                <p>Contraseña</p>
+                <input type="texto" id="password" name="passwd" required><br><br>
+                <input type="submit" id="boton" class="get-profile btn btn-primary" value="Login"></input>
+                <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
+            </div>
+        </div>
+
+
+
+
+        <input type="text" class="red" id="buscar">
+
+        <a href="#inicio" onclick="modalJoc()" class="btn orange modal-trigger">Jugar</a>
+
+        <div id="contentModal">
+        </div>
+
+        <input type="button" onclick="buscando()" value="buscar">
+        <div id="pelis"></div>
+        <div id="peliculas"></div>
+
+
+
+        <div class="general">
+            <div class="left-align">
+                <div id="logueado" class="right"></div>
+                <br>
+
+            </div>
+        </div>
     </div>
-</div>
-    <a href="#inicio" onclick="modalJoc()" class="btn orange modal-trigger">Jugar</a>
 
-    <div id="contentModal">
-    </div>
 
-    <input type="button" onclick="buscando()" value="buscar">
-    <div id="pelis"></div>
-    <div id="peliculas"></div>
-</div>
+</form>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
