@@ -51,11 +51,24 @@ function login(){
             htmlstr = "";
             htmlstr += `<img src="${data.imagen}"></img>
                         <h6>Bienvenido</h6>
-                        <h6>${data.correo}</h6>`;
+                        <h6>${data.correo}</h6>
+                        <input type="button" id="boton" onclick="logout()" class="get-profile btn btn-primary" value="Logout"></input>`;
             document.getElementById("logueado").innerHTML = htmlstr;
         }
     })
 }
+    function logout(){
+        let email = document.getElementById("correo").value;
+        let pass = document.getElementById("password").value;
+        let datosEnvio = new FormData();
+        datosEnvio.append('correo',email);
+        datosEnvio.append('password',pass);
+        fetch(`./../php/Login.php`,{
+            method: 'POST',
+            body: datosEnvio
+
+        });
+    }
 
 function buscando(){
     let pelicula=document.getElementById("buscar").value;
