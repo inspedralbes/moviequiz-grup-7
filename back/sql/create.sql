@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS Proyecto.peliculas (
 
     id VARCHAR(15) PRIMARY KEY,
     titulo VARCHAR(30),
-    imagen VARCHAR(255)
+    imagen VARCHAR(255),
+    año VARCHAR(4)
 );
 CREATE TABLE IF NOT EXISTS Proyecto.usuarios (
     correo VARCHAR(50) PRIMARY KEY,

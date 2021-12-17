@@ -51,13 +51,25 @@
                 htmlstr = "";
                 htmlstr += `<img src="${data.imagen}"></img>
                             <h6>Bienvenido</h6>
-                            <h6>${data.correo}</h6>`;
+                            <h6>${data.correo}</h6>
+                            <button type="button" id="Jugar" onclick="jugar()" class="get-profile btn btn-primary">Jugar</button>`;
                 document.getElementById("logueado").innerHTML = htmlstr;
             }
         })
     }
+<<<<<<< HEAD
 
     function buscando(){
+=======
+    function jugar(){
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    }
+
+function buscando(){
+>>>>>>> 41e2e03843e5a498b35b8799319fe39d2e4a403e
         let pelicula=document.getElementById("buscar").value;
         let PeliculasPrincipales = document.getElementById("pelis");
         PeliculasPrincipales.style.display="none";
@@ -176,7 +188,30 @@
         });
     }
 
-
+function modalJoc() {
+        let mod = "";
+            mod += `
+                <div class="modal" id="inicio">
+                        <div class="modal-content">
+                            <h4><u>Juego de adivinar la película</u></h4>
+                            <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="modal-close btn orange left">Cerrar</a>
+                            <a href="#jugar" onclick="cmJugar" class="modal-close btn orange modal-trigger">Empezar</a>
+                        </div>
+                </div>
+                </div id="content">
+                    <div class="modal" id="jugar">
+                        <div class="modal-content">
+                            <p>Hola</p>
+                        </div>
+                    </div>
+                </div> `;
+            document.getElementById("contentModal").innerHTML=mod;
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems);
+}
 
 
 

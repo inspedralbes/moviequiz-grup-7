@@ -16,8 +16,9 @@ else{
     $consulta = "SELECT * FROM usuarios";
     $resultado =  mysqli_query( $conn, $consulta );
     $insert = "INSERT INTO usuarios (correo, contrasena) VALUES ('$correo', '$contrasena')";
-    $array = [];
+    //$array = [];
 
+    /*
     while ($columna = mysqli_fetch_array($resultado)) {
 
         array_push($array, array('id' => "$columna[id]", 'correo' => "$columna[correo]", 'contrasena' => "$columna[contrasena]"));
@@ -25,6 +26,7 @@ else{
     $myJSON = json_encode($array);
     $file = "./../json/usuarios.json";
     file_put_contents($file, $myJSON);
+    */
 
     if ($conn->query($insert) === TRUE) {
         echo "New record created successfully";
