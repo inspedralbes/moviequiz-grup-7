@@ -7,9 +7,8 @@
     <title>Películes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <style>
-        .right{
+        #float{
             float: right;
             padding-right: 10px;
         }
@@ -27,25 +26,60 @@
     </style>
 </head>
 <body>
+
+
+
+<form method="POST" action="../php/Login.php">
     <div class="general">
+
         <div class="left-align">
-            <div id="logueado" class="right"></div>
-            <br>
-            <div id="login" class="right">
+            <div id="float">
                 <p>Correo</p>
                 <input type="texto" id="correo" name="correo" required>
                 <p>Contraseña</p>
+<<<<<<< HEAD
                 <input type="texto" id="passwd" name="passwd" required><br><br>
                 <input type="button" id="boton" onclick="login()" class="get-profile btn btn-primary" value="Login"></input>
+=======
+                <input type="texto" id="password" name="passwd" required><br><br>
+                <input type="submit" id="boton" class="get-profile btn btn-primary" value="Login"></input>
+>>>>>>> 41e2e03843e5a498b35b8799319fe39d2e4a403e
                 <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
             </div>
         </div>
 
+
+
+
         <input type="text" class="red" id="buscar">
+
+        <a href="#inicio" onclick="modalJoc()" class="btn orange modal-trigger">Jugar</a>
+
+        <div id="contentModal">
+        </div>
+
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div id="peliculas"></div>
+
+
+
+        <div class="general">
+            <div class="left-align">
+                <div id="logueado" class="right"></div>
+                <br>
+
+            </div>
+        </div>
     </div>
+<<<<<<< HEAD
     <script src="./../js/peliculas.js"></script>
+=======
+
+
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+>>>>>>> 41e2e03843e5a498b35b8799319fe39d2e4a403e
 </body>
 </html>
