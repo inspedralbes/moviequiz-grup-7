@@ -1,5 +1,5 @@
 
-fetch(`./../json/peliculas.json`).then(function(res) {
+    fetch(`./../json/peliculas.json`).then(function(res) {
             return res.json();
 
         }).then(function(data) {
@@ -57,8 +57,7 @@ fetch(`./../json/peliculas.json`).then(function(res) {
         })
     }
 
-
-function buscando(){
+    function buscando(){
         let pelicula=document.getElementById("buscar").value;
         let PeliculasPrincipales = document.getElementById("pelis");
         PeliculasPrincipales.style.display="none";
@@ -67,23 +66,23 @@ function buscando(){
         }).then(function(data) {
             console.log(data);
             let peliculas = "";
-            for(i=0; i<8; i++) {
-                datos = data.Search[i];
-                peliculas += `  <div class="row center">
+            datos = data;
+            for(let i=0; i<8; i++) {
+                peliculas += `<div class="row center">
                                 <div class="col s6 m3 l3">
                                     <div class="card">
                                         <div class="card-image">
-                                            <img src="${datos.Poster}" class="card-image">
-                                            <span class="card-title">${datos.Title}</span>
-                                             <a id="btn-modal" class="btn-floating halfway-fab modal-trigger waves-effect waves-light red" href="#modal${i}"><i class="material-icons">+</i></a>
+                                            <img src="${datos.Search[i].Poster}" class="card-image">
+                                            <span class="card-title">${datos.Search[i].Title}</span>
+                                             <a id="${i}" class="add btn-floating halfway-fab modal-trigger waves-effect waves-light red" href="#modal${i}"><i class=" add material-icons">add</i></a>
                                         
                                             <div class="card-content">
-                                                <p>${datos.Year}</p>
+                                                <p>${datos.Search[i].Year}</p>
                                             </div>
                                         </div>
                                        <div id="modal${i}" class="modal">
                                         <div class="modal-content">
-                                            <h4 class="center-align cyan-text text-darken-3">${datos.Title}</h4>
+                                            <h4 class="center-align cyan-text text-darken-3">${datos.Search[i].Title}</h4>
                                             </br>
                                             <div>
                                                 <label>
@@ -120,11 +119,10 @@ function buscando(){
                                                 <textarea id="comentario" class="materialize-textarea" data-length="200"></textarea>
                                                 <label for="comentario">Comentario</label>
                                             </div>
-                                            <button id="btn-guardar" class="btn waves-effect waves-light disabled"> Guardar </button>
-                                            <!--<div id="divError" class="divError"><label class="error"><span style="font-size: 20px"> ! </span>Debes de iniciar sesión para poder hacer una valoración</label></div>-->
+                                            <button id="btn-guardar"  num="${i}" class="calificar-pelicula add btn waves-effect waves-light" > Guardar </button>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="#!" class="btn modal-close red"><i class="material-icons">cerrar</i></a>
+                                         
                                         </div>
                                     </div>
                                 </div>
@@ -136,6 +134,45 @@ function buscando(){
             //console.log("problem!");
             var elems = document.querySelectorAll('.modal');
             var instances = M.Modal.init(elems,{});
+
+
+
+
+                            document.getElementById("peliculas").addEventListener("click", function (e) {
+
+
+                                if (e.target.classList.contains("calificar-pelicula")) {
+
+                                    //favorito = (e.target.parentElement.querySelector("[name='fav']").value == "on") ? true : false;
+                                    comentario = e.target.parentElement.querySelector("#comentario").value;
+                                    valoracion = e.target.parentElement.querySelector("[name='valoracion']").value;
+                                    alert("hola");
+                                    const nPelicula = e.target.getAttribute("num");
+                                    console.log("Añado la pelicula" + nPelicula);
+                                    const datosPelicula = datos.Search[nPelicula];
+                                    const datosEnvio = new FormData();
+                                    datosEnvio.append('valoracion', valoracion);
+                                    datosEnvio.append('comentario', comentario);
+                                    //datosEnvio.append('usuario', favorito );
+                                    datosEnvio.append('nombre', datosPelicula.Title);
+                                    datosEnvio.append('poster', datosPelicula.Poster);
+                                    datosEnvio.append('imdbId', datosPelicula.imdbID);
+                                    datosEnvio.append('ano', datosPelicula.Year);
+                                    fetch(`./../php/valorarPeliculas.php`, {
+                                        method: 'POST',
+                                        body: datosEnvio
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            console.log(data);
+                                        });
+                                }
+                            });
+
+
+
+
+
         });
     }
 

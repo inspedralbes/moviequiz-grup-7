@@ -33,7 +33,9 @@ else{
     $count = mysqli_num_rows($result);
 
     if($count == 1){
+        session_start();
         $arr = array('exito' => true, 'correo' => "$correo", 'imagen' => 'https://randomuser.me/api/portraits/men/18.jpg');;
+        $_SESSION['usuario'] = $correo;
     }
     else{
         $arr = array ('exito' =>false , 'mensaje' => "Correo o Contraseña incorrectos");
