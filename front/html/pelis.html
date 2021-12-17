@@ -41,11 +41,43 @@
             </div>
         </div>
 
+
         <input type="text" class="red" id="buscar">
+
+
+        <a href="#inicio"  class="btn orange modal-trigger">Jugar</a>
+
+        <div id="contentModal">
+            <div class="modal" id="inicio">
+                <div class="modal-content">
+                    <h4><u>Juego de adivinar la película</u></h4>
+                    <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="modal-close btn orange left">Cerrar</a>
+                    <a href="#jugar" class="modal-close btn orange modal-trigger">Empezar</a>
+                </div>
+            </div>
+            <div id="content">
+                <div class="modal" id="jugar">
+                    <div id="joc" class="modal-content">
+                        <p>Hola</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div id="peliculas"></div>
     </div>
     <script src="./../js/peliculas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
 </body>
 </html>
