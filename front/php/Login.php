@@ -2,7 +2,7 @@
 
 include ("Connect.php");
 $correo = $_POST['correo'];
-$contrasena = $_POST['password'];
+$contrasena = $_POST['passwd'];
 
 if($correo == NULL){
     if($contrasena == NULL){

@@ -7,8 +7,15 @@ CREATE TABLE IF NOT EXISTS Proyecto.peliculas (
     imagen VARCHAR(255)
 );
 CREATE TABLE IF NOT EXISTS Proyecto.usuarios (
-
-    id INT(15) AUTO_INCREMENT PRIMARY KEY,
-    correo VARCHAR(50),
+    correo VARCHAR(50) PRIMARY KEY,
     contrasena VARCHAR(30)
-)
+);
+CREATE TABLE IF NOT EXISTS Proyecto.valoracion (
+    id VARCHAR(15),
+    usuario VARCHAR(50),
+    valoracion INT(11),
+    comentario VARCHAR(10000),
+    PRIMARY KEY(id, usuario),
+    FOREIGN KEY(id) REFERENCES peliculas(id),
+    FOREIGN KEY(id) REFERENCES usuarios(correo)
+);

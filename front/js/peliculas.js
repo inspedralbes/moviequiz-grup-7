@@ -28,11 +28,11 @@
     function login(){
 
         let email = document.getElementById("correo").value;
-        let pass = document.getElementById("password").value;
+        let pass = document.getElementById("passwd").value;
     
         let datosEnvio = new FormData();
         datosEnvio.append('correo',email);
-        datosEnvio.append('password',pass);
+        datosEnvio.append('passwd',pass);
     
         fetch(`./../php/Login.php`,{
             method: 'POST',
