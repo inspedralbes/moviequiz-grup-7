@@ -51,16 +51,11 @@
                 htmlstr = "";
                 htmlstr += `<img src="${data.imagen}"></img>
                             <h6>Bienvenido</h6>
-                            <h6>${data.correo}</h6>
-                            <button type="button" id="Jugar" onclick="jugar()" class="get-profile btn btn-primary">Jugar</button>`;
+                            <h6>${data.correo}</h6>`;
                 document.getElementById("logueado").innerHTML = htmlstr;
             }
         })
     }
-<<<<<<< HEAD
-
-    function buscando(){
-=======
     function jugar(){
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.modal');
@@ -69,7 +64,6 @@
     }
 
 function buscando(){
->>>>>>> 41e2e03843e5a498b35b8799319fe39d2e4a403e
         let pelicula=document.getElementById("buscar").value;
         let PeliculasPrincipales = document.getElementById("pelis");
         PeliculasPrincipales.style.display="none";
