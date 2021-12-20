@@ -16,7 +16,7 @@ $pos = array_slice($random, 0, 4);
 
 for($i=0; $i<count($rows);$i++){
 
-    $anys[1]=$rows[$i]['ano'];
+    $anys[1]=$rows[$i]['ano']+0;
     $anys[2]=$rows[$i]['ano']+$sumasrestas[$random[0]];
     $anys[3]=$rows[$i]['ano']+$sumasrestas[$random[1]];
     $anys[4]=$rows[$i]['ano']+$sumasrestas[$random[2]];
@@ -24,7 +24,7 @@ for($i=0; $i<count($rows);$i++){
     $nouArray[$i]['id'] = $rows[$i]['id'];
     $nouArray[$i]['titulo'] = $rows[$i]['titulo'];
     $nouArray[$i]['imagen'] = $rows[$i]['imagen'];
-    $nouArray[$i]['any1'] = $anys[$pos[0]];
+    $nouArray[$i]['any1 '] = $anys[$pos[0]];
     $nouArray[$i]['any2 '] = $anys[$pos[1]];
     $nouArray[$i]['any3 '] = $anys[$pos[2]];
     $nouArray[$i]['any4 '] = $anys[$pos[3]];
@@ -37,4 +37,3 @@ $resultado = array_merge($row, $peliculas);
 $json_string = json_encode($resultado);
 $file = './../json/partida.json';
 file_put_contents($file, $json_string);
-//echo $peliculas2 = json_encode($peliculas);
