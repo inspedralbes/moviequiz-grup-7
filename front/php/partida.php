@@ -23,6 +23,7 @@ for($i=0; $i<count($rows);$i++){
 
     $nouArray[$i]['id'] = $rows[$i]['id'];
     $nouArray[$i]['titulo'] = $rows[$i]['titulo'];
+    $nouArray[$i]['imagen'] = $rows[$i]['imagen'];
     $nouArray[$i]['any1'] = $anys[$pos[0]];
     $nouArray[$i]['any2 '] = $anys[$pos[1]];
     $nouArray[$i]['any3 '] = $anys[$pos[2]];
@@ -36,3 +37,4 @@ $resultado = array_merge($row, $peliculas);
 $json_string = json_encode($resultado);
 $file = './../json/partida.json';
 file_put_contents($file, $json_string);
+//echo $peliculas2 = json_encode($peliculas);

@@ -1,0 +1,25 @@
+{
+  "id_partida": "10",
+  "nom_partida": "Partida molt dificil",
+  "respostes": [{
+    "ImdbID": "tt0317219",
+    "resposta": "2006"
+  },
+  {
+    "ImdbID": "tt1323045",
+    "resposta": "2000"
+  },
+  {
+    "ImdbID": "tt0317219",
+    "resposta": "2006"
+  },
+  {
+    "ImdbID": "tt0120737",
+    "resposta": "2001"
+  },
+  {
+    "ImdbID": "tt0120915",
+    "resposta": "1999"
+  }
+  ]
+}
