@@ -33,4 +33,6 @@ $result2 = mysqli_query($conn, $id_partida);
 $row = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 $peliculas['peliculas'] = $nouArray;
 $resultado = array_merge($row, $peliculas);
-echo json_encode($resultado);
+$json_string = json_encode($resultado);
+$file = './../json/partida.json';
+file_put_contents($file, $json_string);
