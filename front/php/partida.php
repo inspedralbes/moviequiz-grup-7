@@ -4,7 +4,7 @@ include ("Connect.php");
 
 $sumasrestas = [-15 , -10 , -5 , -2  , 2 , +5 , +10 ,+15];
 $random = array_rand($sumasrestas, 3);
-$sql = "SELECT id, titulo, imagen, ano from peliculas ORDER BY RAND() LIMIT 5 ";
+$sql = "SELECT id, titulo, imagen, ano from peliculas ORDER BY RAND() LIMIT 5";
 $result = mysqli_query($conn, $sql);
 for($i =0; $i<$result->num_rows;$i++){
     $rows[$i]=$result->fetch_assoc();
@@ -28,6 +28,9 @@ for($i=0; $i<count($rows);$i++){
     $nouArray[$i]['any3 '] = $anys[$pos[2]];
     $nouArray[$i]['any4 '] = $anys[$pos[3]];
 }
+$id_partida = "SELECT id_partida from partida";
+$result2 = mysqli_query($conn, $id_partida);
+$row = mysqli_fetch_array($result2, MYSQLI_ASSOC);
 $peliculas['peliculas'] = $nouArray;
-$myJSON = json_encode($peliculas);
-echo $myJSON;
+$resultado = array_merge($row, $peliculas);
+echo json_encode($resultado);
