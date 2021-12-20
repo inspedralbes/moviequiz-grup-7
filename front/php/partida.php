@@ -24,10 +24,10 @@ for($i=0; $i<count($rows);$i++){
     $nouArray[$i]['id'] = $rows[$i]['id'];
     $nouArray[$i]['titulo'] = $rows[$i]['titulo'];
     $nouArray[$i]['imagen'] = $rows[$i]['imagen'];
-    $nouArray[$i]['any1 '] = $anys[$pos[0]];
-    $nouArray[$i]['any2 '] = $anys[$pos[1]];
-    $nouArray[$i]['any3 '] = $anys[$pos[2]];
-    $nouArray[$i]['any4 '] = $anys[$pos[3]];
+    $nouArray[$i]['any1'] = (string)$anys[$pos[0]];
+    $nouArray[$i]['any2'] = (string)$anys[$pos[1]];
+    $nouArray[$i]['any3'] = (string)$anys[$pos[2]];
+    $nouArray[$i]['any4'] = (string)$anys[$pos[3]];
 }
 $id_partida = "SELECT id_partida from partida";
 $result2 = mysqli_query($conn, $id_partida);
