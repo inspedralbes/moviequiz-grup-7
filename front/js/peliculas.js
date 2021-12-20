@@ -182,18 +182,36 @@ function buscando(){
             let joc = "";
             for(let i = 0; i < data.peliculas.length;i++) {
                 //datos = data[i];
+
+
+                console.log(data.peliculas[i].any1)
+
                 joc += `
                 <div class="row">
-                    <div class="col s6">
-                        <p>${data.peliculas[i].titulo}</p>
+                    <div class="col s12 m12 l12 center">
+                        <h5>${data.peliculas[i].titulo}</h5>
+                        <img src="${data.peliculas[i].imagen}"
                     </div>
-                    <div class="col s3">
-                        <p>${data.peliculas[i].any1}</p>
-                        <p>${data.peliculas[i].any2}</p>
-                    </div>
-                    <div class="col s3">
-                        <p>${data.peliculas[i].any3}</p>
-                        <p>${data.peliculas[i].any4}</p>
+                    <div class="col s12 m12 l12 center" style="text-align: center;">
+                            <h5>Eligue una opcion: </h5>
+                            <div style="display: inline-block">                            
+                               <label>
+                                    <input name="any" type="radio" value="${data.peliculas[i].any2}"/>
+                                    <span>${data.peliculas[i].any2}</span>
+                               </label>
+                                 <label>
+                                    <input name="any" type="radio" value="${data.peliculas[i].any2}"/>
+                                    <span>${data.peliculas[i].any2}</span>
+                               </label>
+                                <label>
+                                    <input name="any" type="radio" value="${data.peliculas[i].any3}"/>
+                                    <span>${data.peliculas[i].any3}</span>
+                               </label>
+                                <label>
+                                    <input name="any" type="radio" value="${data.peliculas[i].any4}"/>
+                                    <span>${data.peliculas[i].any4}</span>
+                               </label>   
+                            </div>
                     </div>
                 </div>
         `;
