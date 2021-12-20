@@ -24,6 +24,5 @@ CREATE TABLE IF NOT EXISTS Proyecto.valoracion (
 CREATE TABLE IF NOT EXISTS Proyecto.partida (
     id_partida INT AUTO_INCREMENT PRIMARY KEY,
     nom_partida VARCHAR(30),
-    usuario VARCHAR(50),
     respuesta VARCHAR(300)
 );
