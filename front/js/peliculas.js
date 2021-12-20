@@ -168,6 +168,37 @@ function buscando(){
 
                             }
                         });
-
     });
 }
+
+
+    function mJoc() {
+
+
+        fetch(`./../json/partida.json`).then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            console.log(data);
+            let joc = "";
+            for(let i = 0; i < data.peliculas.length;i++) {
+                //datos = data[i];
+                joc += `
+                <div class="row">
+                    <div class="col s6">
+                        <p>${data.peliculas[i].titulo}</p>
+                    </div>
+                    <div class="col s3">
+                        <p>${data.peliculas[i].any1}</p>
+                        <p>${data.peliculas[i].any2}</p>
+                    </div>
+                    <div class="col s3">
+                        <p>${data.peliculas[i].any3}</p>
+                        <p>${data.peliculas[i].any4}</p>
+                    </div>
+                </div>
+        `;
+            }
+            document.getElementById("jContent").innerHTML = joc;
+
+        });
+    }
