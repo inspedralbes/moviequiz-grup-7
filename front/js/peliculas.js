@@ -25,37 +25,40 @@
     });
 
 
-function login(){
+    function login(){
 
-    let email = document.getElementById("correo").value;
-    let pass = document.getElementById("passwd").value;
+        let email = document.getElementById("correo").value;
+        let pass = document.getElementById("passwd").value;
 
-    let datosEnvio = new FormData();
-    datosEnvio.append('correo',email);
-    datosEnvio.append('passwd',pass);
+        let datosEnvio = new FormData();
+        datosEnvio.append('correo',email);
+        datosEnvio.append('passwd',pass);
 
-    fetch(`./../php/Login.php`,{
-        method: 'POST',
-        body: datosEnvio
+        fetch(`./../php/Login.php`,{
+            method: 'POST',
+            body: datosEnvio
 
-    }).then(function(res){
-        return res.json();
-    }).then(function(data){
-        console.log(data);
-        if(data.exito==false){
-            htmlstr = "";
-            htmlstr += `<h6>${data.mensaje}</h6>`;
-            document.getElementById("logueado").innerHTML = htmlstr;
-        }else{
-            document.getElementById("login").setAttribute("style","display: none;");
-            htmlstr = "";
-            htmlstr += `<img src="${data.imagen}"></img>
+        }).then(function(res){
+            return res.json();
+        }).then(function(data){
+            console.log(data);
+            if(data.exito==false){
+                htmlstr = "";
+                htmlstr += `<h6>${data.mensaje}</h6>`;
+                document.getElementById("logueado").innerHTML = htmlstr;
+            }else{
+                document.getElementById("login").setAttribute("style","display: none;");
+                htmlstr = "";
+                htmlstr += `<img src="${data.imagen}"></img>
                         <h6>Bienvenido</h6>
-                        <h6>${data.correo}</h6>`;
-            document.getElementById("logueado").innerHTML = htmlstr;
-        }
-    })
-}
+                        <h6>${data.correo}</h6>
+                        <form action="./../php/Logout.php">
+                            <input type="submit" id="boton" class="get-profile btn btn-primary" value="Logout"></input>
+                        </form>`;
+                document.getElementById("logueado").innerHTML = htmlstr;
+            }
+        })
+    }
 
 function buscando(){
     let pelicula=document.getElementById("buscar").value;

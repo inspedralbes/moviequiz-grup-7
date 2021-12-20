@@ -36,6 +36,7 @@ else{
         session_start();
         $arr = array('exito' => true, 'correo' => "$correo", 'imagen' => 'https://randomuser.me/api/portraits/men/18.jpg');;
         $_SESSION['usuario'] = $correo;
+        $_SESSION['passwd'] = $contrasena;
     }
     else{
         $arr = array ('exito' =>false , 'mensaje' => "Correo o Contraseña incorrectos");
