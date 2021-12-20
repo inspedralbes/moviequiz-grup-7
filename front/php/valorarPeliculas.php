@@ -5,17 +5,13 @@ include ("Connect.php");
 session_start();
 if (isset($_SESSION['usuario'])) {
     $user = $_SESSION['usuario'];
-    $comentario = $_REQUEST['comentario'];
-    $valoracion = $_REQUEST['valoracion'];
-    //$favorito = $_REQUEST['favorito'];
-    echo($comentario);
-    //echo($favorito);
-    echo($valoracion);
-
-    $nombre = $_REQUEST['nombre'];
-    $poster = $_REQUEST['poster'];
-    $imdbId = $_REQUEST['imdbId'];
-    $ano = $_REQUEST['ano'];
+    $comentario = $_POST['comentario'];
+    $valoracion = $_POST['valoracion'];
+    $favorito = $_POST['favorito'];
+    $nombre = $_POST['nombre'];
+    $poster = $_POST['poster'];
+    $imdbId = $_POST['imdbId'];
+    $ano = $_POST['ano'];
 
 
     $comprobar = "SELECT * FROM peliculas WHERE id = '$imdbId'";
@@ -25,15 +21,14 @@ if (isset($_SESSION['usuario'])) {
         $insertp = "INSERT INTO peliculas (id, titulo, imagen, ano) VALUES ('$imdbId', '$nombre', '$poster', '$ano')";
         $resultadop = mysqli_query($conn, $insertp);
 
+
     } else {
         echo "Pelicula ya registrado";
     }
-    $insertv = "INSERT INTO valoracion (id, usuario, valoracion, comentario) VALUES ('$imdbId', '$user', '$valoracion', '$comentario')";
+    $insertv = "INSERT INTO valoracion (id, usuario, valoracion, favorito, comentario) VALUES ('$imdbId', '$user', '$valoracion',$favorito, '$comentario')";
     $resultadov = mysqli_query($conn, $insertv);
-
     echo "Pelicula valorada";
     mysqli_close($conn);
 }
-
 
 

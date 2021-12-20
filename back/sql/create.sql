@@ -15,10 +15,11 @@ CREATE TABLE IF NOT EXISTS Proyecto.valoracion (
     id VARCHAR(15),
     usuario VARCHAR(50),
     valoracion INT(11),
+    favorito INT,
     comentario VARCHAR(10000),
     PRIMARY KEY(id, usuario),
     FOREIGN KEY(id) REFERENCES peliculas(id),
-    FOREIGN KEY(id) REFERENCES usuarios(correo)
+    FOREIGN KEY(usuario) REFERENCES usuarios(correo)
 );
 CREATE TABLE IF NOT EXISTS Proyecto.partida (
     id_partida INT AUTO_INCREMENT PRIMARY KEY,

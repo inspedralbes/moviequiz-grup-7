@@ -51,24 +51,11 @@ function login(){
             htmlstr = "";
             htmlstr += `<img src="${data.imagen}"></img>
                         <h6>Bienvenido</h6>
-                        <h6>${data.correo}</h6>
-                        <input type="button" id="boton" onclick="logout()" class="get-profile btn btn-primary" value="Logout"></input>`;
+                        <h6>${data.correo}</h6>`;
             document.getElementById("logueado").innerHTML = htmlstr;
         }
     })
 }
-    function logout(){
-        let email = document.getElementById("correo").value;
-        let pass = document.getElementById("password").value;
-        let datosEnvio = new FormData();
-        datosEnvio.append('correo',email);
-        datosEnvio.append('password',pass);
-        fetch(`./../php/Login.php`,{
-            method: 'POST',
-            body: datosEnvio
-
-        });
-    }
 
 function buscando(){
     let pelicula=document.getElementById("buscar").value;
@@ -99,7 +86,7 @@ function buscando(){
                                         </br>
                                         <div>
                                             <label>
-                                                <input type="checkbox" id="fav" name="fav"/>
+                                                <input type="checkbox" id="fav" name="fav" value="1"/>
                                                 <span>Marcar como favorito</span>
                                             </label>
                                         </div>
@@ -153,20 +140,20 @@ function buscando(){
 
                         document.getElementById("peliculas").addEventListener("click", function (e) {
 
-
                             if (e.target.classList.contains("calificar-pelicula")) {
 
-                                //favorito = (e.target.parentElement.querySelector("[name='fav']").value == "on") ? true : false;
+                                favorito = (e.target.parentElement.querySelector("[name='fav']").checked == true) ? 1 : 0;
                                 comentario = e.target.parentElement.querySelector("#comentario").value;
-                                valoracion = e.target.parentElement.querySelector("[name='valoracion']").value;
-                                alert("hola");
+                                valoracion = e.target.parentElement.querySelector("[name='valoracion']:checked").value;
+
+                                console.log(favorito);
                                 const nPelicula = e.target.getAttribute("num");
                                 console.log("Añado la pelicula" + nPelicula);
                                 const datosPelicula = datos.Search[nPelicula];
                                 const datosEnvio = new FormData();
                                 datosEnvio.append('valoracion', valoracion);
                                 datosEnvio.append('comentario', comentario);
-                                //datosEnvio.append('usuario', favorito );
+                                datosEnvio.append('favorito', favorito );
                                 datosEnvio.append('nombre', datosPelicula.Title);
                                 datosEnvio.append('poster', datosPelicula.Poster);
                                 datosEnvio.append('imdbId', datosPelicula.imdbID);
@@ -174,15 +161,10 @@ function buscando(){
                                 fetch(`./../php/valorarPeliculas.php`, {
                                     method: 'POST',
                                     body: datosEnvio
-                                })
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        console.log(data);
-                                    });
+                                });
+
                             }
                         });
 
     });
 }
-
-
