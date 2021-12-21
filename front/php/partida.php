@@ -29,6 +29,10 @@ for($i=0; $i<count($rows);$i++){
     $nouArray[$i]['any3'] = (string)$anys[$pos[2]];
     $nouArray[$i]['any4'] = (string)$anys[$pos[3]];
 }
+
+
+$insertar = "INSERT into partida (nom_partida) VALUES ('NULL')";
+$result3 = mysqli_query($conn, $insertar);
 $id_partida = "SELECT id_partida from partida";
 $result2 = mysqli_query($conn, $id_partida);
 $row = mysqli_fetch_array($result2, MYSQLI_ASSOC);
