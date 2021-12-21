@@ -222,96 +222,58 @@ function buscando(){
 
             document.getElementById("comprobar").addEventListener("click", function (e) {
 
-                //Creacion de la estrutura json
-
-
-                let numPartida = 0;
-                numPartida++;
-
-
                 //resposteAny = e.target.parentElement.querySelector("[name='any']:checked").value;
                 //nomPartida = e.target.parentElement.querySelector("[name='nPartida']").value;
 
                 //console.log(e.target);
 
+                let nomPartida = document.getElementById("nPartida").value;
                 let any0 = document.querySelector("[name='any0']:checked").value;
                 let any1 = document.querySelector("[name='any1']:checked").value;
                 let any2 = document.querySelector("[name='any2']:checked").value;
                 let any3 = document.querySelector("[name='any3']:checked").value;
                 let any4 = document.querySelector("[name='any4']:checked").value;
 
-                console.log(any0);
-                console.log(any1);
-                console.log(any2);
-                console.log(any3);
-                console.log(any4);
-
-
-                let datosEnvio = new FormData();
-
-                for (i = 0; i < json.length; i++) {
-                    datosEnvio.append('id_partida', numPartida);
-                    datosEnvio.append('nom_partida', nPartida);
-                    datosEnvio.append('anys1', any1);
-                    datosEnvio.append('anys2', any2);
-                    datosEnvio.append('anys3', any3);
-                    datosEnvio.append('anys4', any4);
-                    datosEnvio.append('anys5', any5);
+                //Creacion del json
+                let estrJoc = {
+                    id_partida: data.id_partida,
+                    nom_partida: nomPartida,
+                    respostes: [
+                        {
+                            ImdbID: data.peliculas[0].id,
+                            resposta: any0
+                        },
+                        {
+                            ImdbID: data.peliculas[1].id,
+                            resposta: any1
+                        },
+                        {
+                            ImdbID: data.peliculas[2].id,
+                            resposta: any2
+                        },
+                        {
+                            ImdbID: data.peliculas[3].id,
+                            resposta: any3
+                        },
+                        {
+                            ImdbID: data.peliculas[4].id,
+                            resposta: any4
+                        }
+                    ]
                 }
 
-                /*{
-  "id_partida": "10",
-  "nom_partida": "Partida molt dificil",
-  "respostes": [{
-    "ImdbID": "tt0317219",
-    "resposta": "2006"
-  },
-  {
-    "ImdbID": "tt1323045",
-    "resposta": "2000"
-  },
-  {
-    "ImdbID": "tt0317219",
-    "resposta": "2006"
-  },
-  {
-    "ImdbID": "tt0120737",
-    "resposta": "2001"
-  },
-  {
-    "ImdbID": "tt0120915",
-    "resposta": "1999"
-  }
-  ]
-}*/
-                let estrJson = {
-                    id_partida: '',
-                    nom_partida: '',
-                    respuestas:
-                        [{ImdbID: '', respuesta: ''}]
-                };
-                console.log(estrJson);
-                let json = JSON.stringify(estrJson);
-                console.log(json);
-                fetch('./../php/partida.php', {
-                    method: 'POST',
-                    body: datosEnvio
-                })
 
 
-                /*
                 let datosEnvio = new FormData();
-                datosEnvio.append('correo',email);
-                datosEnvio.append('passwd',pass);
-
-                fetch(`./../php/Login.php`,{
+                datosEnvio.append('json', JSON.stringify(estrJoc));
+                fetch('./../php/RecibirDatos.php', {
                     method: 'POST',
                     body: datosEnvio
-*/
-
-
-
-
-                });
+                    //headers: {
+                      //  'Content-Type': 'application/json' //Formato
+                    //}
+                })
+                ;
+            });
         });
     }
