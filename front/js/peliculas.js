@@ -165,7 +165,6 @@ function buscando(){
                                     method: 'POST',
                                     body: datosEnvio
                                 });
-
                             }
                         });
     });
@@ -175,40 +174,42 @@ function buscando(){
     function mJoc() {
 
 
-        fetch(`./../json/partida.json`).then(function (res) {
+        fetch(`./../php/partida.php`).then(function (res) {
             return res.json();
         }).then(function (data) {
             console.log(data);
             let joc = "";
-            for(let i = 0; i < data.peliculas.length;i++) {
+            for (let i = 0; i < data.peliculas.length; i++) {
                 //datos = data[i];
 
 
                 console.log(data.peliculas[i].any1)
 
                 joc += `
+                
                 <div class="row">
+                 
                     <div class="col s12 m12 l12 center">
                         <h5>${data.peliculas[i].titulo}</h5>
-                        <img src="${data.peliculas[i].imagen}"
+                        <img src="${data.peliculas[i].imagen}">
                     </div>
                     <div class="col s12 m12 l12 center" style="text-align: center;">
                             <h5>Eligue una opcion: </h5>
                             <div style="display: inline-block">                            
                                <label>
-                                    <input name="any" type="radio" value="${data.peliculas[i].any2}"/>
-                                    <span>${data.peliculas[i].any2}</span>
+                                    <input name="any${i}" type="radio" value="${data.peliculas[i].any1}"/>
+                                    <span>${data.peliculas[i].any1}</span>
                                </label>
                                  <label>
-                                    <input name="any" type="radio" value="${data.peliculas[i].any2}"/>
+                                    <input name="any${i}" type="radio" value="${data.peliculas[i].any2}"/>
                                     <span>${data.peliculas[i].any2}</span>
                                </label>
                                 <label>
-                                    <input name="any" type="radio" value="${data.peliculas[i].any3}"/>
+                                    <input name="any${i}" type="radio" value="${data.peliculas[i].any3}"/>
                                     <span>${data.peliculas[i].any3}</span>
                                </label>
                                 <label>
-                                    <input name="any" type="radio" value="${data.peliculas[i].any4}"/>
+                                    <input name="any${i}" type="radio" value="${data.peliculas[i].any4}"/>
                                     <span>${data.peliculas[i].any4}</span>
                                </label>   
                             </div>
@@ -216,7 +217,101 @@ function buscando(){
                 </div>
         `;
             }
+
             document.getElementById("jContent").innerHTML = joc;
 
+            document.getElementById("comprobar").addEventListener("click", function (e) {
+
+                //Creacion de la estrutura json
+
+
+                let numPartida = 0;
+                numPartida++;
+
+
+                //resposteAny = e.target.parentElement.querySelector("[name='any']:checked").value;
+                //nomPartida = e.target.parentElement.querySelector("[name='nPartida']").value;
+
+                //console.log(e.target);
+
+                let any0 = document.querySelector("[name='any0']:checked").value;
+                let any1 = document.querySelector("[name='any1']:checked").value;
+                let any2 = document.querySelector("[name='any2']:checked").value;
+                let any3 = document.querySelector("[name='any3']:checked").value;
+                let any4 = document.querySelector("[name='any4']:checked").value;
+
+                console.log(any0);
+                console.log(any1);
+                console.log(any2);
+                console.log(any3);
+                console.log(any4);
+
+
+                let datosEnvio = new FormData();
+
+                for (i = 0; i < json.length; i++) {
+                    datosEnvio.append('id_partida', numPartida);
+                    datosEnvio.append('nom_partida', nPartida);
+                    datosEnvio.append('anys1', any1);
+                    datosEnvio.append('anys2', any2);
+                    datosEnvio.append('anys3', any3);
+                    datosEnvio.append('anys4', any4);
+                    datosEnvio.append('anys5', any5);
+                }
+
+                /*{
+  "id_partida": "10",
+  "nom_partida": "Partida molt dificil",
+  "respostes": [{
+    "ImdbID": "tt0317219",
+    "resposta": "2006"
+  },
+  {
+    "ImdbID": "tt1323045",
+    "resposta": "2000"
+  },
+  {
+    "ImdbID": "tt0317219",
+    "resposta": "2006"
+  },
+  {
+    "ImdbID": "tt0120737",
+    "resposta": "2001"
+  },
+  {
+    "ImdbID": "tt0120915",
+    "resposta": "1999"
+  }
+  ]
+}*/
+                let estrJson = {
+                    id_partida: '',
+                    nom_partida: '',
+                    respuestas:
+                        [{ImdbID: '', respuesta: ''}]
+                };
+                console.log(estrJson);
+                let json = JSON.stringify(estrJson);
+                console.log(json);
+                fetch('./../php/partida.php', {
+                    method: 'POST',
+                    body: datosEnvio
+                })
+
+
+                /*
+                let datosEnvio = new FormData();
+                datosEnvio.append('correo',email);
+                datosEnvio.append('passwd',pass);
+
+                fetch(`./../php/Login.php`,{
+                    method: 'POST',
+                    body: datosEnvio
+*/
+
+
+
+
+                });
         });
     }
