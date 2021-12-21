@@ -52,18 +52,20 @@
         <input type="text" class="red" id="buscar">
 
 
-        <input type="button" onclick="mJoc()" data-target="inicio" class="btn orange modal-trigger" value="buscar">
+        <input type="button" onclick="mJoc()" data-target="inicio" class=" btn orange modal-trigger" value="buscar">
 
         <div id="contentModal">
             <div class="modal" id="inicio">
                 <div class="modal-content">
                     <h4><u>Juego de adivinar la película</u></h4>
                     <p>En este juego, te mostaremos una imagen de una película, tendrás que adivinar el año que se estrenó dicha película</p>
+                    <h5>Nombre de la partida : </h5>
+                    <input type="text" name="nPartida" id="nPartida" value="">
                     <div id="jContent"></div>
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="modal-close btn orange left">Cerrar</a>
-                    <a href="#jugar" class="modal-close btn orange modal-trigger">Empezar</a>
+                    <a href="#jugar" id="comprobar"  class="jocB modal-close btn orange modal-trigger">Empezar</a>
                 </div>
             </div>
         </div>
