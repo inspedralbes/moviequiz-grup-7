@@ -1,28 +1,22 @@
+fetch(`./../php/MejorValoracion.php`).then(function(res) {
+    return res.json();
 
-    fetch(`./../json/peliculas.json`).then(function(res) {
-        return res.json();
+}).then(function(data) {
 
-    }).then(function(data) {
-        
-        console.log(data);
+    console.log(data);
 
-        let pelis = "";
-        for(i=0; i<data.length; i++){
-            datos = data[i];
-            pelis += `<div class="row center">
-                            <div class="col s6 m3 l3">
-                                   <div class="card">
-                                        <div class="card-image">
-                                            <img src="${datos.imagen}"></img>
-                                            <h3>${datos.titulo}</h3>
-                                   </div>
-                            </div>
-                     </div>`;
-        }
-        document.getElementById("pelis").innerHTML=pelis;
-//    }).catch(function() {
-//        console.log("problem!");
-    });
+
+    let pelis = "";
+    for(let i=0; i<data.length; i++){
+        pelis += `<a class="carousel-item"><img src="${data[i].imagen}"></a>`;
+    }
+    document.getElementById("carousel2").innerHTML=pelis;
+    //    }).catch(function() {
+    //        console.log("problem!");
+    var imgs = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(imgs);
+
+});
 
 
     function login(){

@@ -6,32 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./../css/index.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <style>
-        .right{
-            float: right;
-            padding-right: 10px;
-        }
 
-        #peliculas {
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-
-        #pelis {
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-
-        h5 {
-            text-align: center;
-        }
-
-
-
-
-    </style>
 </head>
 <body>
     <div class="general">
@@ -73,6 +51,9 @@
 
         <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
+        <div class="container">
+            <div id="carousel2" class="carousel"></div>
+        </div>
         <div id="peliculas"></div>
     </div>
     <script src="./../js/peliculas.js"></script>
