@@ -29,6 +29,4 @@ $puntuacion = ($aciertos*3) - ($fallos);
 $insert = "INSERT INTO partida(id_partida, nom_partida, respuesta, aciertos, fallos, puntuacion) VALUES ('$id_partida', '$nom_partida','$respuestas', '$aciertos', '$fallos', '$puntuacion')";
 $resultado = mysqli_query($conn, $insert);
 $resultados = array('id_partida' => $id_partida, 'nom_partida' => $nom_partida, 'aciertos' => $aciertos, 'fallos' => $fallos, 'puntuacion' => $puntuacion);
-echo json_encode($resultados);
-mysqli_close($conn);
-?>
+mysqli_close($conn);?>
