@@ -13,7 +13,17 @@
 </head>
 <body>
     <div class="general">
-            <div id="logueado"></div>
+
+        <nav class=" #42a5f5 blue lighten-1 ">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center"><img height="145px" src="./../img/logo.png"></a>
+            </div>
+        </nav>
+
+
+
+
+        <div class="center-align" id="logueado"></div>
             <br>
             <div id="login" class="center-align" >
                 <p>Correo</p>
@@ -56,13 +66,7 @@
         </div>
         <div id="peliculas"></div>
     </div>
-    <script src="./../js/peliculas.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems);
-        });
-    </script>
+
     <footer class="page-footer #42a5f5 blue lighten-1">
         <div class="container">
           <div class="row">
@@ -86,5 +90,12 @@
           </div>
         </div>
       </footer>
+    <script src="./../js/peliculas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
 </body>
 </html>
