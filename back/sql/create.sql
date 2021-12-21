@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS Proyecto.valoracion (
     FOREIGN KEY(usuario) REFERENCES usuarios(correo)
 );
 CREATE TABLE IF NOT EXISTS Proyecto.partida (
-    id_partida INT PRIMARY KEY,
+    id_partida INT AUTO_INCREMENT PRIMARY KEY,
     nom_partida VARCHAR(30),
     respuesta VARCHAR(300),
     aciertos VARCHAR(10),
