@@ -48,7 +48,8 @@ fetch(`./../php/MejorValoracion.php`).then(function(res) {
                         <h6>${data.correo}</h6>
                         <form action="./../php/Logout.php">
                             <input type="submit" id="boton" class="get-profile btn btn-primary" value="Logout"></input>
-                        </form>`;
+                        </form>
+                        <a class="get-profile btn btn-primary" href="./../php/Usuario.php">Usuario</a>`;
                 document.getElementById("logueado").innerHTML = htmlstr;
             }
         })
@@ -135,32 +136,32 @@ function buscando(){
 
 
 
-                        document.getElementById("peliculas").addEventListener("click", function (e) {
+        document.getElementById("peliculas").addEventListener("click", function (e) {
 
-                            if (e.target.classList.contains("calificar-pelicula")) {
+            if (e.target.classList.contains("calificar-pelicula")) {
 
-                                favorito = (e.target.parentElement.querySelector("[name='fav']").checked == true) ? 1 : 0;
-                                comentario = e.target.parentElement.querySelector("#comentario").value;
-                                valoracion = e.target.parentElement.querySelector("[name='valoracion']:checked").value;
+                favorito = (e.target.parentElement.querySelector("[name='fav']").checked == true) ? 1 : 0;
+                comentario = e.target.parentElement.querySelector("#comentario").value;
+                valoracion = e.target.parentElement.querySelector("[name='valoracion']:checked").value;
 
-                                console.log(favorito);
-                                const nPelicula = e.target.getAttribute("num");
-                                console.log("Añado la pelicula" + nPelicula);
-                                const datosPelicula = datos.Search[nPelicula];
-                                const datosEnvio = new FormData();
-                                datosEnvio.append('valoracion', valoracion);
-                                datosEnvio.append('comentario', comentario);
-                                datosEnvio.append('favorito', favorito );
-                                datosEnvio.append('nombre', datosPelicula.Title);
-                                datosEnvio.append('poster', datosPelicula.Poster);
-                                datosEnvio.append('imdbId', datosPelicula.imdbID);
-                                datosEnvio.append('ano', datosPelicula.Year);
-                                fetch(`./../php/valorarPeliculas.php`, {
-                                    method: 'POST',
-                                    body: datosEnvio
-                                });
-                            }
+                console.log(favorito);
+                const nPelicula = e.target.getAttribute("num");
+                console.log("Añado la pelicula" + nPelicula);
+                const datosPelicula = datos.Search[nPelicula];
+                const datosEnvio = new FormData();
+                datosEnvio.append('valoracion', valoracion);
+                datosEnvio.append('comentario', comentario);
+                datosEnvio.append('favorito', favorito );
+                datosEnvio.append('nombre', datosPelicula.Title);
+                datosEnvio.append('poster', datosPelicula.Poster);
+                datosEnvio.append('imdbId', datosPelicula.imdbID);
+                datosEnvio.append('ano', datosPelicula.Year);
+                    fetch(`./../php/valorarPeliculas.php`, {
+                            method: 'POST',
+                            body: datosEnvio
                         });
+                    }
+                });
     });
 }
 

@@ -13,10 +13,9 @@
 </head>
 <body>
     <div class="general">
-        <div class="left-align">
-            <div id="logueado" class="right"></div>
+            <div id="logueado"></div>
             <br>
-            <div id="login" class="right">
+            <div id="login" class="center-align" >
                 <p>Correo</p>
                 <input type="texto" id="correo" name="correo" required>
                 <p>Contraseña</p>
@@ -24,14 +23,16 @@
                 <input type="button" id="boton" onclick="login()" class="get-profile btn btn-primary" value="Login"></input>
                 <p>¿Aún no estás registrado? Haz click <a href="./Register.html">Aquí</a> para registrarte</p>
             </div>
+     
+
+        <div class="center-align">
+            <input type="text" id="buscar">
+            <input type="button" class=" center-align get-profile btn btn-primary" onclick="buscando()" value="buscar">
         </div>
-
-
-        <input type="text" class="red" id="buscar">
-
-
-        <input type="button" onclick="mJoc()" data-target="inicio" class=" btn orange modal-trigger" value="buscar">
-
+        <br>
+        <div class="center-align">
+            <input type="button" onclick="mJoc()" data-target="inicio" class=" btn orange modal-trigger" value="jugar">
+        </div>
         <div id="contentModal">
             <div class="modal" id="inicio">
                 <div class="modal-content">
@@ -49,7 +50,6 @@
         </div>
 
 
-        <input type="button" onclick="buscando()" value="buscar">
         <div id="pelis"></div>
         <div class="container">
             <div id="carousel2" class="carousel"></div>
@@ -63,5 +63,28 @@
             var instances = M.Modal.init(elems);
         });
     </script>
+    <footer class="page-footer #42a5f5 blue lighten-1">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">MovieQuiz</h5>
+              <p class="grey-text text-lighten-4">Marc Lamolla Kevin Hoyos Josthyn Loma</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Redes Sociales</h5>
+              <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://www.institutpedralbes.cat/%22%3ECampus</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/inspedralbes/%22%3EInstagram</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://twitter.com/inspedralbes%22%3ETwitter</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+            <div class="footer-copyright">
+          <div class="container center">
+          © 2021 Copyright
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
