@@ -12,6 +12,5 @@ if(isset($_SESSION['usuario'])) {
     $update="UPDATE usuarios SET contrasena = '$contrasena' WHERE correo = '$user'";
     $resultado = mysqli_query($conn, $update);
 
-
     mysqli_close($conn);
 }

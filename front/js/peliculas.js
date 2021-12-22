@@ -43,12 +43,15 @@ fetch(`./../php/MejorValoracion.php`).then(function(res) {
             }else{
                 document.getElementById("login").setAttribute("style","display: none;");
                 htmlstr = "";
-                htmlstr += `<img src="${data.imagen}"></img>
+                htmlstr += `
+                        </br></br></br>
+                        <img src="${data.imagen}"></img>
                         <h6>Bienvenido</h6>
                         <h6>${data.correo}</h6>
                         <form action="./../php/Logout.php">
                             <input type="submit" id="boton" class="get-profile btn btn-primary" value="Logout"></input>
                         </form>
+                        </br>
                         <a class="get-profile btn btn-primary" href="./../php/Usuario.php">Usuario</a>`;
                 document.getElementById("logueado").innerHTML = htmlstr;
             }

@@ -16,7 +16,7 @@ if(isset($_SESSION['usuario'])){
 </head>
 <body>
 <?php
-    echo "<div id='informacion'>
+    echo "<div class='center-align' id='informacion'>
                     <ul>
                         <li>Correo: $user</li>
                     </ul>
@@ -25,6 +25,8 @@ if(isset($_SESSION['usuario'])){
     echo "          
            <input type='password' name='contrasena' id='contrasena' placeholder='Tu contraseña'>
            <button class='waves-effect waves-light btn' id='boton-contrasena' type='button'>Cambiar Contraseña</button>
+            <a class='waves-effect waves-light btn' href='./../html/pelis.html'>Tornar</a>
+           
            <div class='container'>
                 <div class='carousel' id='carousel2'></div>
            </div>
@@ -39,14 +41,6 @@ if(isset($_SESSION['usuario'])){
             <div class="col l6 s12">
             <h5 class="white-text">MovieQuiz</h5>
             <p class="grey-text text-lighten-4">Marc Lamolla Kevin Hoyos Josthyn Loma</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Redes Sociales</h5>
-            <ul>
-                <li><a class="grey-text text-lighten-3" href="https://www.institutpedralbes.cat/%22%3ECampus</a></li>
-                <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/inspedralbes/%22%3EInstagram</a></li>
-                <li><a class="grey-text text-lighten-3" href="https://twitter.com/inspedralbes%22%3ETwitter</a></li>
-            </ul>
             </div>
         </div>
         </div>
