@@ -1,0 +1,18 @@
+.right{
+    float: right;
+    padding-right: 10px;
+}
+
+#peliculas {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#pelis {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.desaparecer{
+    display: none;
+
+}
